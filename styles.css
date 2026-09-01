@@ -355,19 +355,22 @@ p{margin:0 0 1.05rem}
 
 /* ---------- Gallery ---------- */
 .gallery{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;grid-auto-flow:row dense;
+  column-count:4;column-gap:.85rem;
 }
 .shot{
+  display:block;width:100%;margin:0 0 .85rem;break-inside:avoid;-webkit-column-break-inside:avoid;
   padding:0;border:0;background:var(--ink);cursor:pointer;overflow:hidden;
-  border-radius:14px;aspect-ratio:1/1;position:relative;
+  border-radius:14px;position:relative;line-height:0;
 }
-.shot img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.shot img{
+  display:block;width:100%;height:auto;object-fit:contain;
+  transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .3s;
+}
 .shot::after{
   content:"";position:absolute;inset:0;background:rgba(13,17,23,.35);opacity:0;transition:opacity .3s;
 }
 .shot:hover img{transform:scale(1.09)}
 .shot:hover::after{opacity:1}
-.shot:nth-child(7n+1){grid-row:span 2;aspect-ratio:1/2.06}
 
 /* ---------- Contact ---------- */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.2rem,5vw,4.5rem);align-items:center}
@@ -433,7 +436,7 @@ p{margin:0 0 1.05rem}
   display:flex;align-items:center;justify-content:center;padding:clamp(1rem,5vw,4rem);
 }
 .lightbox[hidden]{display:none}
-.lightbox img{max-width:min(1100px,92vw);max-height:84vh;border-radius:12px;object-fit:contain;box-shadow:var(--shadow-lg)}
+.lightbox img{width:auto;height:auto;max-width:min(1800px,94vw);max-height:90vh;border-radius:12px;object-fit:contain;box-shadow:var(--shadow-lg)}
 .lightbox__close,.lightbox__nav{
   position:absolute;background:rgba(255,255,255,.1);color:#fff;border:0;cursor:pointer;
   width:52px;height:52px;border-radius:50%;font-size:2rem;line-height:1;
@@ -455,8 +458,7 @@ p{margin:0 0 1.05rem}
   .nav a{padding:.5rem .6rem;font-size:.8rem}
   .footer__grid{grid-template-columns:1.5fr 1fr 1fr}
   .footer__col--brand{grid-column:1/-1}
-  .gallery{grid-template-columns:repeat(3,1fr)}
-  .shot:nth-child(7n+1){grid-row:auto;aspect-ratio:1/1}
+  .gallery{column-count:3}
 }
 
 @media (max-width:940px){
@@ -499,7 +501,8 @@ p{margin:0 0 1.05rem}
   .hero__actions .btn{width:100%}
   .strip__grid{grid-template-columns:1fr}
   .areas__list{grid-template-columns:repeat(2,1fr)}
-  .gallery{grid-template-columns:repeat(2,1fr);gap:.6rem}
+  .gallery{column-count:2;column-gap:.6rem}
+  .shot{margin-bottom:.6rem}
   .contact__cards{grid-template-columns:1fr}
   .footer__grid{grid-template-columns:1fr;gap:2rem}
   .footer__bar{justify-content:center;text-align:center}
