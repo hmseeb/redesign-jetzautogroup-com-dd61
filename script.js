@@ -136,6 +136,7 @@
   var lbNext = document.getElementById('lb-next');
   var index = 0;
   var lastFocused = null;
+  var LB_BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
   function show(i) {
     if (!shots.length) return;
@@ -158,6 +159,7 @@
   function closeLb() {
     if (!lb) return;
     lb.hidden = true;
+    if (lbImg) { lbImg.src = LB_BLANK; lbImg.alt = ''; }
     document.body.style.overflow = '';
     if (lastFocused && lastFocused.focus) lastFocused.focus();
   }
