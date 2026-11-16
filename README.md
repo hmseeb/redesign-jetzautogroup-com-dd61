@@ -6,7 +6,7 @@ vanilla HTML, CSS and JavaScript. No build step, no dependencies.
 ## Business
 
 - **Name:** Sacramento Towing Services
-- **Phone:** [916-628-8646](tel:9166288646)
+- **Phone:** [916-309-8998](tel:9163098998)
 - **Email:** jetzauto@gmail.com
 - **Address:** 5824 Manzanita Ave, Carmichael, CA 95608, United States
 - **Hours:** Available 24/7
